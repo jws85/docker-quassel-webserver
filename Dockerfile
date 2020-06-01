@@ -13,11 +13,11 @@ FROM node:14.3.0-buster-slim
 
 MAINTAINER Justin Smith
 
-EXPOSE 64080
-EXPOSE 64443
+EXPOSE 64000
 
 COPY --from=builder /opt/quassel-webserver /opt/quassel-webserver
 
 WORKDIR /opt/quassel-webserver
 
-ENTRYPOINT ["node", "app.js"]
+ENTRYPOINT ["node", "app.js", "--port", "64000"]
+CMD ["--mode", "http"]
