@@ -17,6 +17,9 @@ EXPOSE 64000
 
 COPY --from=builder /opt/quassel-webserver /opt/quassel-webserver
 
+VOLUME /opt/quassel-webserver/ssl
+VOLUME /opt/quassel-webserver/settings-user.js
+
 WORKDIR /opt/quassel-webserver
 
 ENTRYPOINT ["node", "app.js", "--port", "64000"]
